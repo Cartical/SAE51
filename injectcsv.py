@@ -14,7 +14,7 @@ cursor = conn.cursor()
 
 # Lecture des données à partir du fichier CSV
 with open('pclist.csv', 'r') as file:
-    reader = csv.reader(file, delimiter=',')
+    reader = csv.reader(file, delimiter=';')
     next(reader)  # Ignorer l'en-tête s'il y en a un
     data = [tuple(row) for row in reader]
 
