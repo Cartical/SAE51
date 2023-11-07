@@ -1,4 +1,4 @@
-id;prenom;nom;fonction
+id;nom;prenom;fonction
 1;Tristan;Davila;Chef des Resource Humaine
 2;Humaira;Saunders;Resource Humaine
 3;Evie;Burns;Resource Humaine
@@ -38,7 +38,7 @@ id;prenom;nom;fonction
 37;Bradley;Meza;Graphiste
 38;Tamara;Hood;Graphiste
 39;Ricardo;Salazar;Chef Finance
-40;Tabitha;O'Sullivan;Finance
+40;Tabitha;O_Sullivan;Finance
 41;Krish;Rose;Finance
 42;Selina;Carson;Finance
 43;Warren;Franklin;Finance

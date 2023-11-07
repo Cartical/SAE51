@@ -2,42 +2,47 @@ CREATE DATABASE IF NOT EXISTS sae51;
 use sae51;
 
 CREATE TABLE IF NOT EXISTS pc (
-  id INT PRIMARY KEY AUTO_INCREMENT,
-  marque VARCHAR(50),
-  modele VARCHAR(100),
-  os VARCHAR(50),
-  ram VARCHAR(20),
-  date_achat VARCHAR(30),
-  id_user INT
+  id INT NOT NULL AUTO_INCREMENT,
+  marque VARCHAR(255),
+  modele VARCHAR(255),
+  os VARCHAR(255),
+  ram VARCHAR(255),
+  date_achat DATE,
+  id_user INT,
+  PRIMARY KEY (id)
 );
 
 CREATE TABLE IF NOT EXISTS user (
-  id INT PRIMARY KEY AUTO_INCREMENT,
-  nom VARCHAR(50),
-  prenom VARCHAR(50),
-  fonction VARCHAR(100)
+  id INT NOT NULL AUTO_INCREMENT,
+  nom VARCHAR(255),
+  prenom VARCHAR(255),
+  fonction VARCHAR(255),
+  PRIMARY KEY (id)
 );
 
 CREATE TABLE IF NOT EXISTS logiciel (
-  id INT PRIMARY KEY AUTO_INCREMENT,
+  id INT NOT NULL AUTO_INCREMENT,
   nom VARCHAR(255),
-  id_pc int,
-  version VARCHAR(255)
+  version VARCHAR(255),
+  id_pc INT,
+  PRIMARY KEY (id)
 );
 
 CREATE TABLE IF NOT EXISTS technicien (
-  id INT PRIMARY KEY AUTO_INCREMENT,
-  prenom VARCHAR(50),
-  nom VARCHAR(50)
+  id INT NOT NULL AUTO_INCREMENT,
+  nom VARCHAR(255),
+  prenom VARCHAR(255),
+  PRIMARY KEY (id)
 );
 
 CREATE TABLE IF NOT EXISTS maintenance (
-  id INT PRIMARY KEY AUTO_INCREMENT,
-  id_technicien int,
-  id_pc int,
+  id INT NOT NULL AUTO_INCREMENT,
   type VARCHAR(255),
-  description TEXT,
-  date DATE
+  description VARCHAR(255),
+  date_mt DATE,
+  id_pc INT,
+  id_technicien INT,
+  PRIMARY KEY (id)
 );
 
 ALTER TABLE pc ADD FOREIGN KEY (id_user) REFERENCES user (id);

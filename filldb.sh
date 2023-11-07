@@ -6,22 +6,67 @@ DB_USER="root"
 DB_PASS="mysql"
 DB_NAME="sae51"
 
-# Chemin vers les fichiers CSV
-pc="csv/pc.csv" 
-user="csv/user.csv" 
-logiciel="csv/logiciel.csv" 
-maintenance="csv/maintenance.csv" 
-technicien="csv/technicien.csv" 
 
 # Lecture du fichier CSV ligne par ligne
-tail -n +2 $technicien | while IFS="," read -r prenom nom
+tail -n +2 "csv/user.csv" | while IFS=";" read -r id nom prenom fonction;
 do
     # Requête SQL d'insertion pour chaque ligne du CSV
-    query="INSERT INTO technicien (prenom, nom) VALUES ('$prenom', '$nom');"
+    query="INSERT INTO user (nom,prenom,fonction) VALUES ('$nom', '$prenom', '$fonction');"
 
     # Exécution de la requête via la commande mysql
-    mysql -u $DB_USER -p$DB_PASS -h $DB_HOST $DB_NAME --port=3307 --local-infile=1 -e "$query"
+    mysql -u $DB_USER -p$DB_PASS -h $DB_HOST $DB_NAME --port=3307 -e "$query"
     
-done < $technicien
+done
 
+
+## csv pc 
+sleep 5
+tail -n +2 "csv/pc.csv" | while IFS=";" read -r id marque modele os ram date_achat id_user;
+do
+    # Requête SQL d'insertion pour chaque ligne du CSV
+    query="INSERT INTO pc (marque,modele,os,ram,date_achat,id_user) VALUES ('$marque', '$modele', '$os', '$ram', '$date_achat', '$id_user');"
+
+    # Exécution de la requête via la commande mysql
+    mysql -u $DB_USER -p$DB_PASS -h $DB_HOST $DB_NAME --port=3307 -e "$query"
+    
+done
+
+
+## csv logiciel 
+sleep 5
+tail -n +2 "csv/logiciel.csv" | while IFS=";" read -r id nom version id_pc;
+do
+    # Requête SQL d'insertion pour chaque ligne du CSV
+    query="INSERT INTO logiciel (nom,version,id_pc) VALUES ('$nom', '$version', '$id_pc');"
+
+    # Exécution de la requête via la commande mysql
+    mysql -u $DB_USER -p$DB_PASS -h $DB_HOST $DB_NAME --port=3307 -e "$query"
+    
+done
+
+
+## csv technicien 
+sleep 5
+tail -n +2 "csv/technicien.csv" | while IFS=";" read -r id nom prenom;
+do
+    # Requête SQL d'insertion pour chaque ligne du CSV
+    query="INSERT INTO technicien (nom, prenom) VALUES ('$nom', '$prenom');"
+
+    # Exécution de la requête via la commande mysql
+    mysql -u $DB_USER -p$DB_PASS -h $DB_HOST $DB_NAME --port=3307 -e "$query"
+    
+done
+
+
+## csv maintenance 
+sleep 5
+tail -n +2 "csv/maintenance.csv" | while IFS=";" read -r id type description date_mt id_pc id_technicien;
+do
+    # Requête SQL d'insertion pour chaque ligne du CSV
+    query="INSERT INTO maintenance (type,description,date_mt,id_pc,id_technicien) VALUES ('$type', '$description', '$date_mt', '$id_pc', '$id_technicien');"
+
+    # Exécution de la requête via la commande mysql
+    mysql -u $DB_USER -p$DB_PASS -h $DB_HOST $DB_NAME --port=3307 -e "$query"
+    
+done
 
