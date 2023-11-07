@@ -19,4 +19,4 @@ docker network rm net-sae51
 sleep 30
 ./db_create.sh
 
-python3 filldb.py
+#python3 filldb.py
