@@ -3,19 +3,19 @@ use sae51;
 
 CREATE TABLE IF NOT EXISTS pc (
   id INT PRIMARY KEY AUTO_INCREMENT,
-  marque VARCHAR(255),
-  modele VARCHAR(255),
-  os VARCHAR(255),
-  ram VARCHAR(255),
-  date_achat VARCHAR(255),
+  marque VARCHAR(50),
+  modele VARCHAR(100),
+  os VARCHAR(50),
+  ram VARCHAR(20),
+  date_achat VARCHAR(30),
   id_user INT
 );
 
 CREATE TABLE IF NOT EXISTS user (
   id INT PRIMARY KEY AUTO_INCREMENT,
-  nom VARCHAR(255),
-  prenom VARCHAR(255),
-  fonction VARCHAR(255)
+  nom VARCHAR(50),
+  prenom VARCHAR(50),
+  fonction VARCHAR(100)
 );
 
 CREATE TABLE IF NOT EXISTS logiciel (
@@ -27,8 +27,8 @@ CREATE TABLE IF NOT EXISTS logiciel (
 
 CREATE TABLE IF NOT EXISTS technicien (
   id INT PRIMARY KEY AUTO_INCREMENT,
-  nom VARCHAR(255),
-  prenom VARCHAR(255)
+  prenom VARCHAR(50),
+  nom VARCHAR(50)
 );
 
 CREATE TABLE IF NOT EXISTS maintenance (
@@ -42,9 +42,9 @@ CREATE TABLE IF NOT EXISTS maintenance (
 
 ALTER TABLE pc ADD FOREIGN KEY (id_user) REFERENCES user (id);
 
-ALTER TABLE logiciels ADD FOREIGN KEY (id_pc) REFERENCES pc (id);
+ALTER TABLE logiciel ADD FOREIGN KEY (id_pc) REFERENCES pc (id);
 
-ALTER TABLE maintenances ADD FOREIGN KEY (id_technicien) REFERENCES techniciens (id);
+ALTER TABLE maintenance ADD FOREIGN KEY (id_technicien) REFERENCES technicien (id);
 
-ALTER TABLE maintenances ADD FOREIGN KEY (id_pc) REFERENCES pc (id);
+ALTER TABLE maintenance ADD FOREIGN KEY (id_pc) REFERENCES pc (id);
 

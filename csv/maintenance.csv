@@ -1,26 +1,26 @@
-type;description;date
-Clavier abimer;touche clavier bloqué;11/01/2023
-Clavier abimer;touche clavier bloqué;12/01/2023
-Clavier abimer;touche clavier casser;14/01/2023
-Clavier abimer;touche clavier ne repond plus;16/01/2023
-Souris Perdu;Perte d'une souris dans la R204;18/01/2023
-Logiciel;Bug a corriger;13/01/2023
-Logiciel;Bug a corriger;22/01/2023
-Logiciel;Bug a corriger;24/01/2023
-Logiciel;Bug a corriger;23/01/2023
-Logiciel;Bug a corriger;28/01/2023
-Logiciel;Mise a jour necessaire;29/01/2023
-Réseau;Cable RJ45 HS;30/01/2023
-Logiciel;Bug a corriger;31/01/2023
-Logiciel;Bug a corriger;01/02/2023
-Réseau;Coupure Wifi;02/02/2023
-Réseau;Cable RJ45 HS;03/02/2023
-Réseau;Instalation nouveau routeur;04/02/2023
-Logiciel;Bug a corriger;05/02/2023
-Logiciel;Mise a jour necessaire;06/02/2023
-Logiciel;Bug a corriger;07/02/2023
-Logiciel;Mise a jour necessaire;08/02/2023
-Logiciel;Bug a corriger;09/02/2023
-Réseau;Instalation nouveau switch;10/02/2023
-Clavier HS;Clavier mort dois etre changer;11/02/2023
-Souris HS;Souris morte dois etre changer;15/02/2023
+id;type;description;date;id_pc;id_technicien
+1;Clavier abimer;touche clavier bloqué;11/01/2023;5;5
+2;Clavier abimer;touche clavier bloqué;12/01/2023;62;5
+3;Clavier abimer;touche clavier casser;14/01/2023;35;5
+4;Clavier abimer;touche clavier ne repond plus;16/01/2023;48;6
+5;Souris Perdu;Perte d'une souris dans la R204;18/01/2023;80;10
+6;Logiciel;Bug a corriger;13/01/2023;45;12
+7;Logiciel;Bug a corriger;22/01/2023;1;12
+8;Logiciel;Bug a corriger;24/01/2023;24;10
+9;Logiciel;Bug a corriger;23/01/2023;5;1
+10;Logiciel;Bug a corriger;28/01/2023;67;8
+11;Logiciel;Mise a jour necessaire;29/01/2023;12;8
+12;Réseau;Cable RJ45 HS;30/01/2023;35;8
+13;Logiciel;Bug a corriger;31/01/2023;23;9
+14;Logiciel;Bug a corriger;01/02/2023;84;6
+15;Réseau;Coupure Wifi;02/02/2023;9;12
+16;Réseau;Cable RJ45 HS;03/02/2023;75;7
+17;Réseau;Instalation nouveau routeur;04/02/2023;22;7
+18;Logiciel;Bug a corriger;05/02/2023;33;9
+19;Logiciel;Mise a jour necessaire;06/02/2023;42;3
+20;Logiciel;Bug a corriger;07/02/2023;24;3
+21;Logiciel;Mise a jour necessaire;08/02/2023;89;2
+22;Logiciel;Bug a corriger;09/02/2023;2;7
+23;Réseau;Instalation nouveau switch;10/02/2023;8;7
+24;Clavier HS;Clavier mort dois etre changer;11/02/2023;9;5
+25;Souris HS;Souris morte dois etre changer;15/02/2023;52;11
