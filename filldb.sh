@@ -8,10 +8,10 @@ DB_NAME="sae51"
 
 
 # Lecture du fichier CSV ligne par ligne
-tail -n +2 "csv/user.csv" | while IFS=";" read -r nom prenom fonction;
+tail -n +2 "csv/users.csv" | while IFS=";" read -r nom prenom fonction;
 do
     # Requête SQL d'insertion pour chaque ligne du CSV
-    query="INSERT INTO user (nom,prenom,fonction) VALUES ('$nom', '$prenom', '$fonction');"
+    query="INSERT INTO users (nom,prenom,fonction) VALUES ('$nom', '$prenom', '$fonction');"
 
     # Exécution de la requête via la commande mysql
     mysql -u $DB_USER -p$DB_PASS -h $DB_HOST $DB_NAME --port=3307 -e "$query"
