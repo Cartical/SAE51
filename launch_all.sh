@@ -14,7 +14,9 @@ set -x
 ./run_mysql.sh
 
 # etape 3
-sleep 30
+./sql/auto_dbml2sql.sh
+
+
 ./db_create.sh
 
 sleep 5
