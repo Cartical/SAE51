@@ -20,4 +20,3 @@ sleep 30
 sleep 5
 ./filldb.sh
 
-#python3 filldb.py
