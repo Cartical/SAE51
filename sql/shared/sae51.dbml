@@ -1,6 +1,7 @@
 Table users {
 id integer
 username varchar
+prenom varchar
 created_at timestamp
 }
 

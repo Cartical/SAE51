@@ -1,6 +1,7 @@
 CREATE TABLE `users` (
   `id` integer,
   `username` varchar(255),
+  `prenom` varchar(255),
   `created_at` timestamp
 );
 

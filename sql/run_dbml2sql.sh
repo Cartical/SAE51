@@ -1,5 +1,5 @@
 docker run --rm \
 	--workdir /srv \
-	--name sae51-ub \
+	--name cont-dbml2sql \
 	--mount type=bind,source=$(pwd)/shared,target=/srv \
-	sae51-nodejs /srv/dbml2sql.sh
+	im-dbml2sql /srv/dbml2sql.sh

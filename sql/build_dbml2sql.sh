@@ -1,1 +1,1 @@
-docker build -t sae51-nodejs -f Dockerfile1 .
+docker build -t im-dbml2sql -f Dockerfile1 .
