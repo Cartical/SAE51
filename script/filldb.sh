@@ -9,13 +9,23 @@ DB_NAME="sae51"
 cd ..
 sleep 2
 # Lecture du fichier CSV ligne par ligne
-tail -n +2 "./csv/users.csv" | while IFS=";" read -r nom prenom fonction;
+tail -n +2 "./csv/ram.csv" | while IFS=";" read -r ram_gb;
 do
     # Requête SQL d'insertion pour chaque ligne du CSV
-    query="INSERT INTO users (prenom,nom,id_pc) VALUES ('$prenom','$nom','$id_pc');"
+    query="INSERT INTO ram (ram_gb) VALUES ('$ram_gb');"
 
     # Exécution de la requête via la commande mysql
     mysql -u $DB_USER -p$DB_PASS -h $DB_HOST $DB_NAME --port=3307 -e "$query"
     
 done
 
+
+tail -n +2 "./csv/os.csv" | while IFS=";" read -r nom_os;
+do
+    # Requête SQL d'insertion pour chaque ligne du CSV
+    query="INSERT INTO os (nom_os) VALUES ('$nom_os');"
+
+    # Exécution de la requête via la commande mysql
+    mysql -u $DB_USER -p$DB_PASS -h $DB_HOST $DB_NAME --port=3307 -e "$query"
+    
+done

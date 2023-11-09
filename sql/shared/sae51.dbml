@@ -1,5 +1,5 @@
 Table pc {
-  id integer [primary key]
+  id integer [pk, increment]
   date_achat date
   id_marque integer
   id_ram integer
@@ -8,20 +8,20 @@ Table pc {
 }
 
 Table users {
-  id integer [primary key]
+  id integer [pk, increment]
   prenom varchar
   nom varchar
   id_pc integer
 }
 
 Table logiciels {
-  id integer [primary key]
+  id integer [pk, increment]
   nom varchar
   version varchar
 }
 
 Table maintenance {
-  id integer [primary key]
+  id integer [pk, increment]
   description text
   date date
   id_pc integer
@@ -29,23 +29,23 @@ Table maintenance {
 }
 
 Table marque {
-  id integer [primary key]
+  id integer [pk, increment]
   nom varchar
 }
 
 Table technicien {
-  id integer [primary key]
+  id integer [pk, increment]
   prenom varchar
   nom varchar
 }
 
 Table os {
-  id integer [primary key]
+  id integer [pk, increment]
   nom_os varchar
 }
 
 Table ram {
-  id integer [primary key]
+  id integer [pk, increment]
   ram_gb integer
 }
 
