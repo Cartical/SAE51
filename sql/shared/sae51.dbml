@@ -1,15 +1,51 @@
+Table pc {
+  id integer [primary key]
+  os varchar
+  ram varchar
+  date_achat varchar
+  id_marque integer
+  id_logiciel integer
+}
+
 Table users {
-id integer
-username varchar
-prenom varchar
-created_at timestamp
+  id integer [primary key]
+  nom varchar
+  prenom varchar
+  id_pc integer
 }
 
-Table posts {
-id integer [primary key]
-title varchar
-body text [note: 'Content of the post']
-user_id integer
+Table logiciels {
+  id integer [primary key]
+  nom varchar
+  version varchar
 }
 
-Ref: posts.user_id > users.id // many-to-one
+Table maintenance {
+  id integer [primary key]
+  description text
+  date date
+  id_technicien integer
+  id_pc integer
+}
+
+Table marque {
+  id integer [primary key]
+  nom varchar
+}
+
+Table technicien {
+  id integer [primary key]
+  nom varchar
+  prenom varchar
+}
+
+
+Ref: "pc"."id" < "users"."id_pc"
+
+Ref: "pc"."id" < "maintenance"."id_pc"
+
+Ref: "logiciels"."id" < "pc"."id_logiciel"
+
+Ref: "technicien"."id" < "maintenance"."id_technicien"
+
+Ref: "marque"."id" < "pc"."id_marque"

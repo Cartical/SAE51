@@ -8,3 +8,5 @@ do
 #	convert $a $name.png
 	dbml-renderer -i $name.dbml -o $name.svg
 done
+
+

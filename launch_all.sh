@@ -1,6 +1,7 @@
 #!/usr/bin/bash
 set -x
 
+cd $(pwd)/script/
 # etape 0 suppression de tous les éléments actif.
 # purge sql et docker
 
@@ -14,11 +15,9 @@ set -x
 ./run_mysql.sh
 
 # etape 3
-./sql/auto_dbml2sql.sh
-
-
+#creation de la base de données
 ./db_create.sh
 
+#remplissage de la base de données
 sleep 5
 ./filldb.sh
-
