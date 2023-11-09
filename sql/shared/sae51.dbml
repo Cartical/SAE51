@@ -1,7 +1,7 @@
 Table pc {
   id integer [primary key]
-  os varchar
-  ram varchar
+  id_os varchar
+  id_ram varchar
   date_achat varchar
   id_marque integer
   id_logiciel integer
@@ -39,6 +39,15 @@ Table technicien {
   prenom varchar
 }
 
+Table os {
+  id integer [primary key]
+  nom_os varchar
+}
+
+Table ram {
+  id integer [primary key]
+  ram_gb integer
+}
 
 Ref: "pc"."id" < "users"."id_pc"
 
@@ -49,3 +58,7 @@ Ref: "logiciels"."id" < "pc"."id_logiciel"
 Ref: "technicien"."id" < "maintenance"."id_technicien"
 
 Ref: "marque"."id" < "pc"."id_marque"
+
+Ref: "ram"."id" < "pc"."id_ram"
+
+Ref: "os"."id" < "pc"."id_os"
