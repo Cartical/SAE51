@@ -1,16 +1,16 @@
 Table pc {
   id integer [primary key]
-  id_os varchar
-  id_ram varchar
-  date_achat varchar
+  date_achat date
   id_marque integer
+  id_ram integer
+  id_os integer
   id_logiciel integer
 }
 
 Table users {
   id integer [primary key]
-  nom varchar
   prenom varchar
+  nom varchar
   id_pc integer
 }
 
@@ -24,8 +24,8 @@ Table maintenance {
   id integer [primary key]
   description text
   date date
-  id_technicien integer
   id_pc integer
+  id_technicien integer
 }
 
 Table marque {
@@ -35,8 +35,8 @@ Table marque {
 
 Table technicien {
   id integer [primary key]
-  nom varchar
   prenom varchar
+  nom varchar
 }
 
 Table os {

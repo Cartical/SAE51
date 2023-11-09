@@ -8,4 +8,4 @@ docker run -d \
 	--name cont-mysql \
 	--env MYSQL_ROOT_PASSWORD=mysql \
 	--network net-sae51 \
-	mysql --local-infile=1 --secure-file-priv=’’
+	mysql --local-infile=1 --secure-file-priv=''

@@ -19,5 +19,5 @@ cd $(pwd)/script/
 ./db_create.sh
 
 #remplissage de la base de données
-sleep 5
+sleep 2
 ./filldb.sh

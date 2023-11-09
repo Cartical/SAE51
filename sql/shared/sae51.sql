@@ -1,17 +1,17 @@
 CREATE DATABASE sae51; USE sae51;
 CREATE TABLE `pc` (
   `id` integer PRIMARY KEY,
-  `os` varchar(255),
-  `ram` varchar(255),
-  `date_achat` varchar(255),
+  `date_achat` date,
   `id_marque` integer,
+  `id_ram` integer,
+  `id_os` integer,
   `id_logiciel` integer
 );
 
 CREATE TABLE `users` (
   `id` integer PRIMARY KEY,
-  `nom` varchar(255),
   `prenom` varchar(255),
+  `nom` varchar(255),
   `id_pc` integer
 );
 
@@ -25,8 +25,8 @@ CREATE TABLE `maintenance` (
   `id` integer PRIMARY KEY,
   `description` text,
   `date` date,
-  `id_technicien` integer,
-  `id_pc` integer
+  `id_pc` integer,
+  `id_technicien` integer
 );
 
 CREATE TABLE `marque` (
@@ -36,8 +36,18 @@ CREATE TABLE `marque` (
 
 CREATE TABLE `technicien` (
   `id` integer PRIMARY KEY,
-  `nom` varchar(255),
-  `prenom` varchar(255)
+  `prenom` varchar(255),
+  `nom` varchar(255)
+);
+
+CREATE TABLE `os` (
+  `id` integer PRIMARY KEY,
+  `nom_os` varchar(255)
+);
+
+CREATE TABLE `ram` (
+  `id` integer PRIMARY KEY,
+  `ram_gb` integer
 );
 
 ALTER TABLE `users` ADD FOREIGN KEY (`id_pc`) REFERENCES `pc` (`id`);
@@ -49,4 +59,8 @@ ALTER TABLE `pc` ADD FOREIGN KEY (`id_logiciel`) REFERENCES `logiciels` (`id`);
 ALTER TABLE `maintenance` ADD FOREIGN KEY (`id_technicien`) REFERENCES `technicien` (`id`);
 
 ALTER TABLE `pc` ADD FOREIGN KEY (`id_marque`) REFERENCES `marque` (`id`);
+
+ALTER TABLE `pc` ADD FOREIGN KEY (`id_ram`) REFERENCES `ram` (`id`);
+
+ALTER TABLE `pc` ADD FOREIGN KEY (`id_os`) REFERENCES `os` (`id`);
 

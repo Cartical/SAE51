@@ -1,26 +1,27 @@
-type;description;date_mt;id_pc;id_technicien
-Clavier;touche clavier bloque;2023-01-11;5;5
-Clavier;touche clavier bloque;2023-01-12;62;5
-Clavier;touche clavier casser;2023-01-14;35;5
-Clavier;touche clavier ne repond plus;2023-01-16;48;6
-Souris;Perte d une souris dans la R204;2023-01-18;80;10
-Logiciel;Bug a corriger;2023-01-13;45;12
-Logiciel;Bug a corriger;2023-01-22;1;12
-Logiciel;Bug a corriger;2023-01-24;24;10
-Logiciel;Bug a corriger;2023-01-23;5;1
-Logiciel;Bug a corriger;2023-01-28;67;8
-Logiciel;Mise a jour necessaire;2023-01-29;12;8
-Reseau;Cable RJ45 HS;2023-01-30;35;8
-Logiciel;Bug a corriger;2023-01-31;23;9
-Logiciel;Bug a corriger;2023-02-01;84;6
-Reseau;Coupure Wifi;2023-02-02;9;12
-Reseau;Cable RJ45 HS;2023-02-03;75;7
-Reseau;Instalation nouveau routeur;2023-02-04;22;7
-Logiciel;Bug a corriger;2023-02-05;33;9
-Logiciel;Mise a jour necessaire;2023-02-06;42;3
-Logiciel;Bug a corriger;2023-02-07;24;3
-Logiciel;Mise a jour necessaire;2023-02-08;89;2
-Logiciel;Bug a corriger;2023-02-09;2;7
-Reseau;Instalation nouveau switch;2023-02-10;8;7
-Clavier;Clavier mort dois etre changer;2023-02-11;9;5
-Souris;Souris morte dois etre changer;2023-02-15;52;11
+description;date;id_pc;id_technicien
+Mise_a_jour;2023-01-11;5;5
+Clavier_hs;2023-01-12;62;14
+Clavier_hs;2023-01-14;35;5
+Bug_a_corriger;2023-01-16;48;6
+Perte_d_une_souris_dans_la_A204;2023-01-18;80;10
+Mise_a_jour;2023-01-15;3;4
+Bug_a_corriger;2023-01-13;45;12
+Bug_a_corriger;2023-01-22;1;12
+Cable_PC_abimer;2023-01-24;24;10
+Bug_a_corriger;2023-01-23;5;1
+Bug_a_corriger;2023-01-28;67;4
+Mise_a_jour;2023-01-29;12;8
+Cable_RJ45_HS;2023-01-30;35;15
+Bug_a_corriger;2023-01-31;23;9
+Bug_a_corriger;2023-02-01;84;6
+Coupure_Wifi;2023-02-02;9;12
+Cable_RJ45_HS;2023-02-03;75;7
+Instalation_nouveau_routeur;2023-02-04;22;7
+Bug_a_corriger;2023-02-05;33;9
+Mise_a_jour;2023-02-06;42;13
+Bug_a_corriger;2023-02-07;24;3
+Mise_a_jour;2023-02-08;89;2
+Bug_a_corriger;2023-02-09;2;13
+Instalation_nouveau_switch;2023-02-10;8;7
+Clavier_hs;2023-02-11;9;5
+Souris_hs;2023-02-15;52;11
