@@ -19,6 +19,7 @@ do
     
 done
 
+sleep 1
 
 tail -n +2 "./csv/os.csv" | while IFS=";" read -r nom_os;
 do
@@ -30,6 +31,8 @@ do
     
 done
 
+sleep 1
+
 tail -n +2 "./csv/marque.csv" | while IFS=";" read -r nom;
 do
     # Requête SQL d'insertion pour chaque ligne du CSV
@@ -39,6 +42,8 @@ do
     mysql -u $DB_USER -p$DB_PASS -h $DB_HOST $DB_NAME --port=3307 -e "$query"
     
 done
+
+sleep 1
 
 tail -n +2 "./csv/logiciels.csv" | while IFS=";" read -r nom version;
 do
@@ -50,6 +55,8 @@ do
     
 done
 
+sleep 1
+
 tail -n +2 "./csv/technicien.csv" | while IFS=";" read -r prenom nom;
 do
     # Requête SQL d'insertion pour chaque ligne du CSV
@@ -60,6 +67,7 @@ do
     
 done
 
+sleep 1
 
 tail -n +2 "./csv/pc.csv" | while IFS=";" read -r date_achat id_marque id_ram id_os id_logiciel;
 do
@@ -71,6 +79,8 @@ do
     
 done
 
+sleep 1
+
 tail -n +2 "./csv/maintenance.csv" | while IFS=";" read -r description date id_pc id_technicien;
 do
     # Requête SQL d'insertion pour chaque ligne du CSV
@@ -80,6 +90,8 @@ do
     mysql -u $DB_USER -p$DB_PASS -h $DB_HOST $DB_NAME --port=3307 -e "$query"
     
 done
+
+sleep 1
 
 tail -n +2 "./csv/users.csv" | while IFS=";" read -r prenom nom id_pc;
 do

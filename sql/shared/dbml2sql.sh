@@ -5,8 +5,8 @@ do
 	name=${a%.dbml}
 	echo "processing $name"
 	dbml2sql $a --mysql > $name.sql
-#	convert $a $name.png
 	dbml-renderer -i $name.dbml -o $name.svg
+	#convert $name.svg $name.png
 done
 
 

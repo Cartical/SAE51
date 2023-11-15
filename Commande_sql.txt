@@ -4,6 +4,9 @@ SAE 51 - Requêtes SQL
 Sachant qu'il y'a 100 machine, 100 user, 4 OS et 3 paramètre de RAM différent, et que la majorité des recherche utilise les id de chaque table (exemple : HP à l'id 2).
 
 
+mysql -u root -pmysql -h 127.0.0.1 --port=3307
+
+
 Liste des requêtes SQL :
 
 
@@ -42,7 +45,7 @@ SELECT id_pc, description FROM maintenance WHERE date BETWEEN '2023-01-14' AND '
 
 9. liste de machines sur lesquelles le technicien Elaine Sharpe a fait de la maintenance
 SELECT * FROM maintenance WHERE id_technicien IN(SELECT id FROM technicien WHERE prenom="Elaine");
-V2 : SELECT DISTINCT pc. * FROM pc JOIN maintenance ON pc.id = maintenance.id_pc JOIN technicien ON maintenance.id_technicien = technicien.id WHERE technicien.prenom = 'Elaine';
+V2 : SELECT * FROM maintenance JOIN technicien ON maintenance.id_technicien = technicien.id WHERE id_technicien IN(SELECT id FROM technicien WHERE prenom="Elaine");
 
 
 
