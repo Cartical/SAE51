@@ -1,13 +1,14 @@
 #!/usr/bin/bash
 set -x
 
-cd $(pwd)/script/
+
 # etape 0 suppression de tous les éléments actif.
 # purge sql et docker
 
 ./purge.sh
 
 # etape 1
+cd $(pwd)/script/
 ./create_network.sh
 ./build_image.sh
 
@@ -21,3 +22,5 @@ cd $(pwd)/script/
 #remplissage de la base de données
 sleep 2
 ./filldb.sh
+
+./commande.sh
