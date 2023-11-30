@@ -1,0 +1,64 @@
+Table pc {
+  id integer [pk, increment]
+  date_achat date
+  id_marque integer
+  id_ram integer
+  id_os integer
+  id_logiciel integer
+}
+
+Table users {
+  id integer [pk, increment]
+  prenom varchar
+  nom varchar
+  id_pc integer
+}
+
+Table logiciels {
+  id integer [pk, increment]
+  nom varchar
+  version varchar
+}
+
+Table maintenance {
+  id integer [pk, increment]
+  description text
+  date date
+  id_pc integer
+  id_technicien integer
+}
+
+Table marque {
+  id integer [pk, increment]
+  nom varchar
+}
+
+Table technicien {
+  id integer [pk, increment]
+  prenom varchar
+  nom varchar
+}
+
+Table os {
+  id integer [pk, increment]
+  nom_os varchar
+}
+
+Table ram {
+  id integer [pk, increment]
+  ram_gb integer
+}
+
+Ref: "pc"."id" < "users"."id_pc"
+
+Ref: "pc"."id" < "maintenance"."id_pc"
+
+Ref: "logiciels"."id" < "pc"."id_logiciel"
+
+Ref: "technicien"."id" < "maintenance"."id_technicien"
+
+Ref: "marque"."id" < "pc"."id_marque"
+
+Ref: "ram"."id" < "pc"."id_ram"
+
+Ref: "os"."id" < "pc"."id_os"

@@ -1,0 +1,8 @@
+FROM ubuntu:22.04
+RUN apt-get update && apt-get upgrade -y
+RUN apt-get -y install npm imagemagick
+RUN npm install -g @dbml/cli
+RUN npm install -g @softwaretechnik/dbml-renderer
+RUN nodejs --version
+RUN sed s/this.table.settings?.headercolor/this.table.settings.headercolor/ /usr/local/lib/node_modules/@softwaretechnik/dbml-renderer/lib/renderer.js > tmp/renderer.js
+RUN cp tmp/renderer.js /usr/local/lib/node_modules/@softwaretechnik/dbml-renderer/lib/renderer.js
