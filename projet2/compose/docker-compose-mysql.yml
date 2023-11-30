@@ -1,0 +1,37 @@
+version: "3"
+
+services:
+    mysql:
+        image: mysql:latest
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: dolibarr
+        volumes:
+            - ./sql:/var/lib/mysql
+            # J'ajoute le volume data sur mon système. 
+            # En faisant ça, même si je supprime l'intégralité
+            # de mes conteneurs et volumes 
+            #( commande docker system prune par exemple )
+            #, je ne perdrai pas mes données	
+
+    web:
+        image: tuxgasy/dolibarr
+        environment:
+            DOLI_DB_HOST: mysql
+            DOLI_DB_USER: root
+            DOLI_DB_PASSWORD: root
+            DOLI_DB_NAME: dolibarr
+            DOLI_MODULES: modSociete
+            DOLI_ADMIN_LOGIN: calvin
+            DOLI_ADMIN_PASSWORD: arrive
+            DOLI_URL_ROOT: 'http://0.0.0.0'
+            DOLI_CRON: 0
+            PHP_INI_DATE_TIMEZONE: 'Europe/Paris'
+        ports:
+            - "80:80"
+        links:
+            - mysql
+
+networks:
+  sae51:
+    driver: bridge
