@@ -22,10 +22,10 @@ docker run \
 	--network=sae51 \
 	-d mysql:latest
 
-sleep 10 #attente de 10 secondes pour être sûr que le sgbd soit accessible
+sleep 15 #attente de 15 secondes pour être sûr que le sgbd soit accessible
 
 #ETAPE 3 Creation de la BDD dolibarr:  
-mysql mysql -u dolibarr -p'dolibarr' -h 127.0.0.1 --port=3306 < sql/dolibarr.sql 2>/dev/null
+mysql -u dolibarr -p'dolibarr' -h 127.0.0.1 --port=3306 < sql/dolibarr.sql 2>/dev/null
 
 #ETAPE 4 : Création du conteneur dolibarr : 
 docker run \
@@ -38,3 +38,6 @@ docker run \
 	--env DOLI_ADMIN_PASSWORD=arrive\
 	--network=sae51 \
 	upshift/dolibarr
+	
+	
+sleep 10

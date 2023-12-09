@@ -1,0 +1,12 @@
+Id,Name,Alias Name,Parent company,Status,Customer,Vendor,Creation date,Latest modification date,Customer Code,Vendor Code,Accounting Code,Vendor accounting code,Address,Zip Code,City,State/Province,Region,Country,Country code,Phone,Fax,Url,Email,Default language,Canvas,Professional ID 1,Professional ID 2,Professional ID 3,Professional ID 4,Professional ID 5,Professional ID 6,VAT ID,Capital,Note (private),Note (public),Third-party type,Number of Employees,Business entity type,Prospect potential,Prospect status,Payment Terms,Payment method,Max. for outstanding bill,Payment bank account,Incoterms,Login of sales representative,First name of sales representative,Last name of sales representative,
+1,Company ABC,ABC Inc.,,,,,,,,,123 Main St,,,Paris,,,,,France,,,,
+2,Company XYZ,XYZ Ltd.,,,,,,,,,456 Oak St,,,Lyon,,,,,France,,,,
+3,Company PQR,PQR Co.,,,,,,,,,789 Pine St,,,Rouen,,,,,France,,,,
+4,Company LMN,LMN Solutions,,,,,,,,,101 Cedar Rd,,,Rouen,,,,,France,,,,
+5,Company RST,RST Innovations,,,,,,,,,222 Oak Ave,,,Paris,,,,,France,,,,
+6,Company UVW,UVW Enterprises,,,,,,,,,333 Maple Blvd,,,Lyon,,,,,France,,,,
+7,Company GHI,GHI Solutions,,,,,,,,,444 Elm Lane,,,Rouen,,,,,France,,,,
+8,Company JKL,JKL Innovations,,,,,,,,,555 Pine Rd,,,Rouen,,,,,France,,,,
+9,Company NOP,NOP Solutions,,,,,,,,,777 Oak St,,,Lyon,,,,,France,,,,
+10,Company QWE,QWE Enterprises,,,,,,,,,888 Maple Ave,,,Rouen,,,,,France,,,,
+
