@@ -40,4 +40,6 @@ docker run \
 	upshift/dolibarr
 	
 	
-sleep 10
+sleep 15
+
+./import_csv2.sh
