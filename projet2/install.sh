@@ -40,6 +40,4 @@ docker run \
 	upshift/dolibarr
 	
 	
-sleep 15
-
-./import_csv2.sh
+sleep 5 #attente avant lancement de l'interface dolibarr
