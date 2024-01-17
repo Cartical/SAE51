@@ -1,12 +1,14 @@
-Installation de vagrant et virtualbox-dkms sur la vm hote 
+1) Installation de vagrant et virtualbox-dkms sur la vm hote 
 
-installation de linux-headers-generic
+premier test execution des vm : echec demande d'installer linux headers generic
+
+2) installation de linux-headers-generic car demandé par vagrant lors de l'éxecution
 
 execution des VM avec la box vagrant ok
 
-voici celle que nous avons utilisé.
+3) Vagrantfile 
+voici la box vagrant que nous avons utilisé.
 config.vm.box = "generic/debian11" 
-
 
 modification des ip dans le vagrant file car erreur au lancement 
 
@@ -19,14 +21,11 @@ voici la modif
   config.vm.network "public_network", bridge: "VMNet", ip: "192.168.1.10"
 
 
-
 modification des paquets à installer dans les vm serveur sur vagrant :
 installation de nginx nginx-extras et ufw 
 
 voici la modif :
 
-config.vm.provision "file", source: "~/SAE51/sae51-3/server/index.html", destination: "index.html"
-  config.vm.provision "file", source: "~/SAE51/sae51-3/server/nginx.conf", destination: "nginx.conf"
   config.vm.provision "shell",inline: <<-SHELL
     apt-get update
     apt-get install nginx nginx-extras ufw -y
@@ -36,8 +35,22 @@ config.vm.provision "file", source: "~/SAE51/sae51-3/server/index.html", destina
     cp "/home/vagrant/nginx.conf" "/etc/nginx/nginx.conf"
   SHELL
 
+
+
+
 insertion d'un fichier de config nginx et un fichier index.html préfait dans la vm serveur
 
+config.vm.provision "file", source: "~/SAE51/sae51-3/server/index.html", destination: "index.html"
+  config.vm.provision "file", source: "~/SAE51/sae51-3/server/nginx.conf", destination: "nginx.conf"
+
+
 voir fichier nginx.conf et index.html dans le repertoire serveur.
+
+
+
+
+Problème : Le commit prend en compte les fichiers vagrant 
+
+Solution : créer un fichier .gitignore avec l'instruction suivante : */.vagrant/*
 
 

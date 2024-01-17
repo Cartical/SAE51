@@ -32,7 +32,7 @@ Vagrant.configure("2") do |config|
   
   config.vm.hostname = "client"
   # création d'un réseau commun pour serveur et client
-  # vagrant fonctionne dans le réseau 192.168.56.0 par défaut.
+  # virtualbox fonctionne dans le réseau 192.168.56.0 par défaut.
   # mettre deux IP différentes à la place de XX sur serveur et client:
   config.vm.network "private_network", type: "static", ip: "192.168.56.11"
   config.vm.network "public_network", bridge: "VMNet", ip: "192.168.1.11"
