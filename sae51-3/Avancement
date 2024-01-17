@@ -54,3 +54,7 @@ Problème : Le commit prend en compte les fichiers vagrant
 Solution : créer un fichier .gitignore avec l'instruction suivante : */.vagrant/*
 
 
+
+Problème : erreur d'authentification a cause du port déjà utilisé 
+
+Solution : sudo lsof -i :8080 ou autre port et arreter le service avec sudo kill -9 PID
