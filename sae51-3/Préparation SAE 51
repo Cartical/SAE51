@@ -1,0 +1,33 @@
+Problème : Mon PC ne peut pas faire tourner de la virtualisation imbriqué car cela est considérer comme une intrusion dans le noyau du système.
+
+Solution trouvé pour faire de la virtualisation imbriqué sur pc windows 11.
+
+Ouvrir cmd en mode admin
+
+1) Désinstaller Microsoft Hyper-V
+commande : dism.exe /Online /Disable-Feature:Microsoft-Hyper-V
+
+2) Mettre les commandes suivantes pour suprimer complètement hyper-V et donner des instruction de boot pour l'étape d'après.
+
+mountvol X: /s 
+copy %WINDIR%\System32\SecConfig.efi X:\EFI\Microsoft\Boot\SecConfig.efi /Y
+bcdedit /create {0cb3b571-2f2e-4343-a879-d86a476d7215} /d "DebugTool" /application osloader
+bcdedit /set {0cb3b571-2f2e-4343-a879-d86a476d7215} path "\EFI\Microsoft\Boot\SecConfig.efi"
+bcdedit /set {bootmgr} bootsequence {0cb3b571-2f2e-4343-a879-d86a476d7215}
+bcdedit /set {0cb3b571-2f2e-4343-a879-d86a476d7215} loadoptions DISABLE-LSA-ISO,DISABLE-VBS
+bcdedit /set {0cb3b571-2f2e-4343-a879-d86a476d7215} device partition=X:
+bcdedit /set hypervisorlaunchtype off 
+mountvol X: /d
+
+
+3) Enfin redémarrez le PC afin de prendre en compte les changements.
+
+Au redémarrage le pc demande de desactiver credential guard et hyper v 
+
+4) Désactiver Credential Guard et hyper v avec la touche indiquer (la touche F3)
+
+5) Activer VT-x et AMD-V sur Virtualbox 
+aller dans configuration > système > processeur 
+cocher la case Activer VT-x et AMD-V imbriqué.
+
+Après cela la virtualisation imbriqué fonctionne.
