@@ -1,0 +1,43 @@
+Installation de vagrant et virtualbox-dkms sur la vm hote 
+
+installation de linux-headers-generic
+
+execution des VM avec la box vagrant ok
+
+voici celle que nous avons utilisé.
+config.vm.box = "generic/debian11" 
+
+
+modification des ip dans le vagrant file car erreur au lancement 
+
+voici la modif
+  config.vm.hostname = "serveur"
+  # création d'un réseau commun pour serveur et client
+  # vagrant fonctionne dans le réseau 192.168.56.0 par défaut.
+  # mettre deux IP différentes à la place de XX sur serveur et client:
+  config.vm.network "private_network", type: "static", ip: "192.168.56.10"
+  config.vm.network "public_network", bridge: "VMNet", ip: "192.168.1.10"
+
+
+
+modification des paquets à installer dans les vm serveur sur vagrant :
+installation de nginx nginx-extras et ufw 
+
+voici la modif :
+
+config.vm.provision "file", source: "~/SAE51/sae51-3/server/index.html", destination: "index.html"
+  config.vm.provision "file", source: "~/SAE51/sae51-3/server/nginx.conf", destination: "nginx.conf"
+  config.vm.provision "shell",inline: <<-SHELL
+    apt-get update
+    apt-get install nginx nginx-extras ufw -y
+    systemctl start nginx
+    systemctl status nginx
+    cp "/etc/nginx/nginx.conf" "/etc/nginx/nginxoldconf"
+    cp "/home/vagrant/nginx.conf" "/etc/nginx/nginx.conf"
+  SHELL
+
+insertion d'un fichier de config nginx et un fichier index.html préfait dans la vm serveur
+
+voir fichier nginx.conf et index.html dans le repertoire serveur.
+
+
