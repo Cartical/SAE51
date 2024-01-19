@@ -30,4 +30,12 @@ Au redémarrage le pc demande de desactiver credential guard et hyper v
 aller dans configuration > système > processeur 
 cocher la case Activer VT-x et AMD-V imbriqué.
 
+ou méthode avec Powershell si la case est grisé
+
+- ouvrir un powershell admin 
+- se placer dans le repertoire : cd "C:\Program Files\Oracle\VirtualBox\"
+- activer la virtualisation imbriqué : .\VBoxManage.exe modifyvm "NOM VM" --nested-hw-virt on
+
+
+
 Après cela la virtualisation imbriqué fonctionne.
