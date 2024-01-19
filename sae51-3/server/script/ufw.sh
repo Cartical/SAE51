@@ -1,30 +1,31 @@
 #!/bin/bash
 
-### Initialisation de ufw (activation et affichage des règles)
+# reset ufw : sudo ufw reset --force
+
+
+### activation de ufw et affichage des règles en place par défaut
 ufw status
 ufw logging on
 ufw --force enable
-ufw status
 ufw status verbose
 
 
-### Ajout de règles bloquant le traffic (entrant / sortant )
+### Règles pour bloquer le traffic in et out
 #ufw default deny
 #ufw default deny outgoing
 
 
-
-### Ajout de règles autorisant le traffic (entrant / sortant )
+### Règle pour autoriser le traffic in et out 
+### avec un ordre précis car il est pris en compte par ufw
 #ufw default allow
 #ufw default allow outgoing
-#http-https
-ufw allow 80
-ufw allow 443
+ufw allow 80 #http
+ufw allow 443 #https
 ufw allow 22 #ssh
 
-### Application de la configuration (rechargement de ufw).
+### redémarrage de ufw et affichge du status des règles après execution du script.
 ufw --force reload
 ufw status verbose
 
 
-#réinitialisé ufw : sudo ufw reset --force
+

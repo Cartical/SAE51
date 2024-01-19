@@ -1,10 +1,28 @@
 1) Installation de vagrant et virtualbox-dkms sur la vm hote 
 
-premier test execution des vm : echec demande d'installer linux headers generic
+wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
 
-2) installation de linux-headers-generic car demandé par vagrant lors de l'éxecution
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
 
-execution des VM avec la box vagrant ok
+sudo apt update && sudo apt install vagrant
+
+2) installation de virtualbox
+
+wget -O- https://www.virtualbox.org/download/oracle_vbox_2016.asc | sudo gpg --yes --output /usr/share/keyrings/oracle-virtualbox-2016.gpg --dearmor
+
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/oracle-virtualbox-2016.gpg] http://download.virtualbox.org/virtualbox/debian $(lsb_release -sc) contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
+
+sudo apt update
+
+apt-cache madison virtualbox
+
+sudo apt install virtualbox
+
+sudo usermod -G vboxusers -a $USER
+
+sudo /etc/init.d/vboxdrv setup
+
+
 
 3) Vagrantfile 
 voici la box vagrant que nous avons utilisé.
