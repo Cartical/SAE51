@@ -21,6 +21,7 @@ voici la modif
   config.vm.network "public_network", bridge: "VMNet", ip: "192.168.1.10"
 
 
+
 modification des paquets à installer dans les vm serveur sur vagrant :
 installation de nginx nginx-extras et ufw 
 
