@@ -9,6 +9,8 @@ ufw status verbose
 ### Règles pour bloquer le traffic in et out
 #ufw default deny
 #ufw default deny outgoing
+
+# blocage des protocoles peu sécurisé
 ufw deny 21 # FTP (Port 21) 
 ufw deny 23 # Telnet (Port 23)
 ufw deny 25 # SMTP (Port 25)
