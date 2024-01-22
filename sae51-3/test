@@ -37,4 +37,4 @@ server {
         }
 }
 
-systemctl restart ngin
+systemctl restart nginx
