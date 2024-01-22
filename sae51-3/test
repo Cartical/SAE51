@@ -1,8 +1,12 @@
+# test nginx https
+
+# problème : nginx ne prend pas compte mon fichier index.html et nginx.conf personnalisé pour accepter cette config et ces commande nécéssitent des modification manuel par l'utilisateur dans certain fichier.
+
 nano /etc/apt/sources.list
 
-SURY, post-Dotdeb
+# telechargement des paquets
 deb https://packages.sury.org/php/ stretch main
-deb https://packages.sury.org/nginx-mainl... stretch main
+deb https://packages.sury.org/nginx-mainline/ stretch main
 deb https://packages.sury.org/mariadb/ stretch main
 
 apt update
@@ -13,6 +17,8 @@ openssl genrsa -aes128 -out server.key 2048
 openssl rsa -in server.key -out server.key
 openssl req -new -days 3650 -key server.key -out server.csr
 openssl x509 -in server.csr -out server.crt -req -signkey server.key -days 3650
+
+
 nano /etc/nginx/sites-available/default
 
 server {
