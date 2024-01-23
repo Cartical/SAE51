@@ -56,3 +56,8 @@ curl 192.168.1.10:8080
 exit
 exit
 exit
+ip -a address 
+exit
+ls
+exit
+exit

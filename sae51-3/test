@@ -1,3 +1,7 @@
+#test fail2ban pour bloquer les ddos en limitant la connexion
+apt-get install fail2ban
+
+
 # test nginx https
 
 # problème : nginx ne prend pas compte mon fichier index.html et nginx.conf personnalisé pour accepter cette config et ces commande nécéssitent des modification manuel par l'utilisateur dans certain fichier.

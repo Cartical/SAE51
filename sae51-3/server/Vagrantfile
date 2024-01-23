@@ -94,6 +94,6 @@ Vagrant.configure("2") do |config|
     systemctl start nginx
     systemctl status nginx
     chmod u+rwx ufw.sh
-    ./ufw.sh
+    #./ufw.sh
   SHELL
 end
