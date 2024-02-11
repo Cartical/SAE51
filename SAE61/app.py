@@ -8,10 +8,10 @@ bcrypt = Bcrypt(app)
 
 # Connexion à la base de données MySQL
 db = mysql.connector.connect(
-    host="db",
-    user="myuser",
-    password="mysql",
-    database="mydbsql"
+    host="mysql_cont",
+    user="root",
+    password="foo",
+    database="demosql"
 )
 cursor = db.cursor()
 

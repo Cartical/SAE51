@@ -1,9 +1,4 @@
-# Utilisez l'image MySQL officielle comme base
 FROM mysql:5.7
 
-# Définissez le mot de passe root par défaut
-ENV MYSQL_ROOT_PASSWORD=mysql
-
-# Copiez le script d'initialisation de la base de données dans le conteneur
+# Copie du script d'initialisation de la base de données dans le conteneur
 COPY init.sql /docker-entrypoint-initdb.d/init.sql
-
