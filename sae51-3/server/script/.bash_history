@@ -61,3 +61,30 @@ exit
 ls
 exit
 exit
+exit
+ls
+sudo ./ufw.sh 
+ls
+cat r_ufw.sh 
+sudo ./ r_ufw.sh 
+sudo ./r_ufw.sh 
+sudo ./r_ufw.sh
+sudo ."r_ufw.sh"
+sudo .r_ufw.sh
+sudo r_ufw.sh
+ls
+sudo ./rufw.sh
+./rufw.sh
+sudo ./rufw.sh
+ls -al
+chmod a+x rufw.sh 
+ls -al
+sudo ./rufw.sh
+sudo ./ufw.sh
+sudo ./rufw.sh
+sudo ./ufw.sh
+sudo ./rufw.sh
+ufw status verbose
+sudo ./ufw.sh
+ufw status verbose
+sudo ufw status verbose

@@ -1,32 +1,67 @@
+import mysql.connector
 from flask import Flask, render_template, request
+from flask_bcrypt import Bcrypt
 import re
 
 app = Flask(__name__)
+bcrypt = Bcrypt(app)
 
-# Route principale
+# Connexion à la base de données MySQL
+db = mysql.connector.connect(
+    host="db",
+    user="myuser",
+    password="mysql",
+    database="mydbsql"
+)
+cursor = db.cursor()
+
 @app.route('/')
-def index():
-    return 'Page principale du TP4'
+def home():
+    return '<a href="/newuser">Nouvel utilisateur</a>'
 
-# Nouvelle route pour le formulaire
-@app.route('/newuser/', methods=['GET', 'POST'])
+@app.route('/newuser', methods=['GET', 'POST'])
 def new_user():
+    error = None
+    message = None
+
     if request.method == 'POST':
-        # Récupérer la saisie utilisateur
-        username = request.form.get('username')
+        username = request.form['username']
+        password = request.form['password']
+        email = request.form['email']
 
-        # Valider la saisie avec une regex
-        if re.match(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$', username):
-            message = 'La saisie respecte les critères.'
+        # Vérification de l'identifiant
+        if not re.match(r'^[a-zA-Z0-9_-]{6,15}$', username):
+            error = 'L\'identifiant doit contenir entre 6 et 15 caractères alphanumériques.'
+
+        # Vérification du mot de passe
+        if not re.match(r'^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[%#{}@])[a-zA-Z0-9#%{}@]{6,15}$', password):
+            error = 'Le mot de passe doit contenir entre 6 et 15 caractères, au moins 1 chiffre, au moins 1 majuscule, au moins 1 minuscule et au moins 1 caractère parmi #%{}@.'
+
+        # Vérification de l'adresse e-mail
+        if not re.match(r'^[\w\.-]+@[\w\.-]+$', email):
+            error = 'Adresse e-mail invalide.'
+
+        # Vérification de l'unicité de l'identifiant et de l'adresse e-mail
+        cursor.execute("SELECT * FROM users WHERE username = %s", (username,))
+        result_username = cursor.fetchone()
+        if result_username:
+            error = 'Identifiant déjà utilisé.'
         else:
-            message = 'La saisie ne respecte pas les critères. <br> Veuillez respecter les règles suivantes :<br> - Au moins 6 caractères<br> - Au moins 1 chiffre<br> - Au moins 1 majuscule et 1 minuscule.'
+            cursor.execute("SELECT * FROM users WHERE email = %s", (email,))
+            result_email = cursor.fetchone()
+            if result_email:
+                error = 'Adresse e-mail déjà utilisée.'
 
-        # Renvoyer la page avec le message en utilisant le template Jinja
-        return render_template('newuser.html', message=message)
+        if not error:
+            # Hashage du mot de passe
+            hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
+            # Insertion de l'utilisateur dans la base de données avec le mot de passe hashé
+            cursor.execute("INSERT INTO users (username, password_hash, email) VALUES (%s, %s, %s)", (username, hashed_password, email))
+            db.commit()
+            message = 'Utilisateur créé avec succès.'
 
-    # Affichage de la page formulaire avec get
-    return render_template('newuser.html', message=None)
+    return render_template('newuser.html', error=error, message=message)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')
 
