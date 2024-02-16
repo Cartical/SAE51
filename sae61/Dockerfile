@@ -13,12 +13,12 @@ RUN apt-get install -y pkg-config
 RUN pip3 install Flask mysql-connector-python
 
 # Copie du script Python
-COPY app.py .
+# COPY app.py .
 
 # Copiez le répertoire templates (qui contient newuser.html) dans le conteneur
-COPY templates /app/templates
+# COPY templates /app/templates
 
-# Exposez le port sur lequel Flask va écouter
+# le port sur lequel Flask va écouter
 EXPOSE 5000
 
 # Commande pour exécuter l'application Flask

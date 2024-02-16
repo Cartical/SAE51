@@ -16,6 +16,7 @@ docker network rm net-sae61
 
 # etape 2
 ./run_mysql.sh
+./filldb.sh
 
-# etape 4
+# etape 3
 ./run-app.sh
